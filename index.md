@@ -1,6 +1,8 @@
+# Fixed Income and Credit
+
 ## Introduction
 
-This document represents group project work for course in **Fixed Income and Credit** for advanced degree [Masters in Computational Finance, Union University](http://mcf.raf.edu.rs/).
+This project represents group project work for course in **Fixed Income and Credit** for advanced degree [Masters in Computational Finance, Union University](http://mcf.raf.edu.rs/).
 
 Professor:
 [Prof. Nikola Vasiljevic, PhD](https://www.researchgate.net/profile/Nikola-Vasiljevic-4)
