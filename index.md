@@ -1,37 +1,43 @@
-## Welcome to GitHub Pages
+## Fixed Income and Credit
 
-You can use the [editor on GitHub](https://github.com/mcf-long-short/fixed-income-and-credit/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### Introduction
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This document represents group project work for course in **Fixed Income and Credit** for advanced degree [Masters in Computational Finance, Union University](http://mcf.raf.edu.rs/).
 
-### Markdown
+Professor:
+[Prof. Nikola Vasiljevic, PhD](https://www.researchgate.net/profile/Nikola-Vasiljevic-4)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Students:
+- Nikola Krivacevic
+- Aleksandar Milinkovic
+- Milos Milunovic
 
-```markdown
-Syntax highlighted code block
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/30963594/122693716-4a83ff00-d23b-11eb-999f-b222d8a18f02.png" />
+</p>
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+## Project goal and scope
 
-1. Numbered
-2. List
+The objective of this project is to develop understanding of the concept of time value of money, fixed income securities and markets as well as interest rate derivatives.
+We study valuation and hedging using these instruments and discuss how these methods are used in practice. Furthermore, we demonstrate how to
+apply different models for construction of yield curves, valuation and hedging using interest rate derivatives and estimating expected bond returns.
 
-**Bold** and _Italic_ and `Code` text
+Starting point for analysis of all the previously mentioned things is the dataset that contains:
+- Yield_Curve sheet: `monthly yield data`, for period from `1/31/2005 - 5/31/2021`, containing yields, for bonds from `4m tenor up to 30y`.
+- PCA sheet: `monthly sport rates for ZBCs (zero-coupon bonds)`, for period from `1/31/2000 - 5/31/2021`, for bonds of `1y, 2y, 3y, 4, and 5y maturities`.
+- Fama_Bliss sheet: `monthly prices of coupon-bearing bonds`, for period from `1/31/1964 - 12/31/2020`, for bonds of `1y, 2y, 3y, 4, and 5y maturities`.
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Project phases:
 
-### Jekyll Themes
+Each of the project phases has been logically separated based on things we're analysing and modeling. Every phase has a detailed description of all the steps,
+implementation details, intuition for modeling, interpretation of data analysis, modeling and evaluation that was performed. You can use the following links to view the notebooks with [Google Collab](https://colab.research.google.com/notebooks/intro.ipynb?utm_source=scs-index) or to view them directly on [Github](https://github.com/mcf-long-short/fixed-income-and-credit/tree/main/notebooks):
+- [Bond Pricing](https://colab.research.google.com/drive/1g6bqabvDTBxhwSr688x2PICEoWXZgYlJ?usp=sharing)
+- [Yield Curve Fitting](https://colab.research.google.com/drive/1PxrPSo232JYWVHOPHN2cz21S1NRQFF1y?usp=sharing)
+- [Principal Component Analysis](https://colab.research.google.com/drive/1XcRkJK91YOhFtfczAEce1CL7VY3y5ebt?usp=sharing)
+- [Bond Returns Predictability](https://colab.research.google.com/drive/14nF3Dbs0LG5o2BmkfMz4_b9sr9AplyBg?usp=sharing)
+- [Fixed Income Derivatives](https://colab.research.google.com/drive/1k1h5Ea8zGgQqeE0kYHNaJSIsN_FXuR8E?usp=sharing)
+- [Stochastic Models of Interest Rates](https://colab.research.google.com/drive/1NSnmdyi9HKEfbdl0rpcuNfAVnk_vZSR8?usp=sharing)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mcf-long-short/fixed-income-and-credit/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
