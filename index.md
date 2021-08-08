@@ -1,6 +1,4 @@
-## Fixed Income and Credit
-
-### Introduction
+## Introduction
 
 This document represents group project work for course in **Fixed Income and Credit** for advanced degree [Masters in Computational Finance, Union University](http://mcf.raf.edu.rs/).
 
@@ -29,7 +27,7 @@ Starting point for analysis of all the previously mentioned things is the datase
 - Fama_Bliss sheet: `monthly prices of coupon-bearing bonds`, for period from `1/31/1964 - 12/31/2020`, for bonds of `1y, 2y, 3y, 4, and 5y maturities`.
 
 
-### Project phases:
+## Project phases:
 
 Each of the project phases has been logically separated based on things we're analysing and modeling. Every phase has a detailed description of all the steps,
 implementation details, intuition for modeling, interpretation of data analysis, modeling and evaluation that was performed. You can use the following links to view the notebooks with [Google Collab](https://colab.research.google.com/notebooks/intro.ipynb?utm_source=scs-index) or to view them directly on [Github](https://github.com/mcf-long-short/fixed-income-and-credit/tree/main/notebooks):
