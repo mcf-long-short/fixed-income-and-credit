@@ -1,0 +1,180 @@
+# Python standard library
+from dataclasses import dataclass
+from typing import List
+from typing import Union
+
+# Third party libraries
+import numpy as np
+
+
+def coerce_list(r: float, size: int = 1) -> List[float]:
+  """Creates list of given size with elements of the same value""" 
+  if isinstance(r, list) or isinstance(r, np.ndarray):
+    return r
+  return [r] * size
+
+
+
+@dataclass
+class CashFlow:
+  """CashFlow utility class for manipulating with cash flows"""
+  value: float
+
+  def __add__(self, value: float) -> "CashFlow":
+    return CashFlow(self.value + value)
+
+  def pv(self, r: float, n: float, m: int = -1) -> float:
+    """Calcualtes present value of the cash flow
+    
+    Args:
+      r (float): interest rate
+      n (float): number of years
+      m (int): number of compounding years. Default value if -1 for 
+        continous compounding
+
+    Returns: present value
+    """
+
+    if m == -1:
+      # Continuous compounding
+      return self.value * np.exp(-r*n)
+    else:
+      # Discrete compounding
+      return self.value / (1 + r/m)**(n*m)
+
+
+@dataclass
+class Bond:
+  """Bond class for common bond calculations
+
+  Attributes:
+    fv (float): Face value
+    c (float): Coupon rate
+    t (int): Maturity (in years)
+    pf (int): Coupon payment frequency. Number of time per year coupon payment
+      is made. Default value of 1 represents annual coupon payment
+    cf (int): Cash flow compounding frequency. Nuber of time per year bond cash
+      flows are discounted. Value of -1 represent continuous componding
+  """
+  fv: float
+  c: float
+  t: int
+  pf: int = 1
+  name: str = ""
+  cf: int = 0
+
+  def __post_init__(self):
+    """If name is not provided create generic bond name from template"""
+    if not self.name:
+      self.name = f'Bond {self.fv}/{self.c}/{self.t}'
+    if self.cf == 0:
+      self.cf = self.pf
+
+  def cash_flows(self) -> List[CashFlow]:
+    """Calculates bond's cash flows"""
+
+    # Coupon payments
+    cash_flows = [CashFlow((self.c * self.fv) / self.pf) for t in range(self.t * self.pf)]
+
+    # Face value at maturity
+    cash_flows[-1] += self.fv
+
+    return cash_flows
+
+  def price(self, r: Union[float, List[float]]) -> float:
+    """Calculates bond's theoretical price"""
+
+    # Interest rates
+    r = coerce_list(r, len(self.cash_flows()))
+
+    price = 0
+    time = 0
+    for i, cf in enumerate(self.cash_flows()):
+      time += 1 / self.pf
+      price += cf.pv(r=r[i], n=time, m=self.cf)
+
+    return price
+
+  def duration(self, y: float, duration_type: str = "macaulay") -> float:
+    """Calculates bodn's duration - price sensitivity with the ragards to the yiels"""
+    
+    cfs = self.cash_flows()
+    p = self.price(r=y)
+    cf_sum = 0
+    time = 0
+
+    def macaulay(cfs, p, cf_sum, time):
+      for cf in cfs:
+        time += 1 / self.pf
+        cf_sum += time * cf.pv(r=y, n=time, m=self.cf) / p
+      return cf_sum
+
+    def dollar(cfs, p, cf_sum, time):
+      for cf in cfs:
+        time += 1 / self.pf
+        cf_sum += time * cf.pv(r=y, n=time, m=self.cf)
+      if self.cf == -1:
+        # Continuous compounding
+        return -1 * cf_sum
+      else:
+        # Discrete comounding (self.cf times a year)
+        return - 1/(1 + y/self.cf) * cf_sum
+    
+    def modified(cfs, p, cf_sum, time):
+      for cf in cfs:
+        time += 1 / self.pf
+        cf_sum += time * cf.pv(r=y, n=time, m=self.cf) / p
+      if self.cf == -1:
+        # Continuous compounding: MD == D
+        return cf_sum
+      else:
+        # Discrete comounding (self.cf times a year)
+        return 1/(1 + y/self.cf) * cf_sum
+
+    if duration_type == "dollar":
+        return dollar(cfs, p, cf_sum, time)
+    elif duration_type == "modified":
+        return modified(cfs, p, cf_sum, time)
+    elif duration_type == "macaulay":
+        return macaulay(cfs, p, cf_sum, time)
+        
+  def convexity(self, y: float, convexity_type = "relative") -> float:
+    """Calculated bond's convexity - duration sensitivity with the regards to the yields"""
+
+    cfs = self.cash_flows()
+    p = self.price(r=y)
+    cf_sum = 0
+    time = 0
+
+    def relative(cfs, p, cf_sum, time):
+      if self.cf == -1:
+        # Continuous compounding
+        for cf in cfs:
+          time += 1 / self.pf
+          cf_sum += (time **2) * cf.pv(r=y, n=time, m=self.cf) / p
+        return cf_sum
+      else:
+        # Discrete comounding (self.cf times a year)
+        for cf in cfs:
+          time += 1 / self.pf
+          cf_sum += time * (time + 1/self.cf) * cf.pv(r=y, n=time, m=self.cf) / p
+        return 1/(1 + y/self.cf)**2 * cf_sum
+
+    def dollar(cfs, p, cf_sum, time):
+      if self.cf == -1:
+        # Continuous compounding
+        for cf in cfs:
+          time += 1 / self.pf
+          cf_sum += (time **2) * cf.pv(r=y, n=time, m=self.cf)
+      else:
+        # Discrete comounding (self.cf times a year)
+        for cf in cfs:
+          time += 1 / self.pf
+          cf_sum += time * (time + 1/self.cf) * cf.pv(r=y, n=time, m=self.cf)
+        return 1/(1 + y/self.cf)**2 * cf_sum
+
+    if convexity_type == "relative":
+      return relative(cfs, p, cf_sum, time)
+    elif convexity_type == "dollar":
+      return dollar(cfs, p, cf_sum, time)
+      
