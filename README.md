@@ -21,12 +21,9 @@ Starting point for analysis of all the previously mention things is the dataset 
 Each of the project phases has been logically separated based on things we're analysing and modeling. Every phase has a detailed description of all the steps,
 implementation details, intuition for modeling, interpretation of data analysis, modeling and evaluation that was performed.
 
-For each project phase there is a separate Jupyter Notebook file. You can view the nodebook directhly here on the github (some cells might not be rendered correctly), under `/notebooks` folder,
-or you can use the following links to view them with [Jupyter nbviewer](https://nbviewer.jupyter.org/):
-- [Assignment 3 (Principal Component Analysis).ipynb](https://nbviewer.jupyter.org/github/mcf-long-short/fixed-income-and-credit/blob/main/notebooks/Assignment%203%20%28Principal%20Component%20Analysis%29.ipynb)
-- [Assignment 4 (Bond Returns Predictability).ipynb](https://nbviewer.jupyter.org/github/mcf-long-short/fixed-income-and-credit/blob/main/notebooks/Assignment%204%20%28Bond%20Returns%20Predictability%29.ipynb)
+For each project phase there is a separate Jupyter Notebook file. You can view the nodebook directhly here on the github (some cells might not be rendered correctly), under [/notebooks](https://github.com/mcf-long-short/fixed-income-and-credit/tree/main/notebooks) folder, or you can copy the notebook link from github to view them with [Jupyter nbviewer](https://nbviewer.jupyter.org/).
 
-`Note`: Jupyter's nbviewer will render output much better than the Github, but for both of them 3D plots and some other things won't be rendered. It's better to download the notebook files and open them with Google Collab, or use the following link to view them on a shared GDrive, after loggin in to your Google account:
+`Note`: Jupyter's nbviewer will render output much better than the Github, but for both of them 3D plots and some other things won't be rendered. It's better to download the notebook files and open them with Google Collab, or use the following links to view them on a shared GDrive, after loggin in to your Google account:
 - [Bond Pricing](https://colab.research.google.com/drive/1g6bqabvDTBxhwSr688x2PICEoWXZgYlJ?usp=sharing)
 - [Yield Curve Fitting](https://colab.research.google.com/drive/1PxrPSo232JYWVHOPHN2cz21S1NRQFF1y?usp=sharing)
 - [Principal Component Analysis](https://colab.research.google.com/drive/1XcRkJK91YOhFtfczAEce1CL7VY3y5ebt?usp=sharing)
