@@ -1,6 +1,6 @@
 # Fixed Income and Credit
 
-Docs: TODO: add GithubPages link
+Docs: https://mcf-long-short.github.io/fixed-income-and-credit/
 
 This repository represents group project work for course in `Fixed Income and Credit` for advanced degree [Masters in Computational Finance, Union University](http://mcf.raf.edu.rs/).
 
