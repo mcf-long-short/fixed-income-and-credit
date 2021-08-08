@@ -8,12 +8,12 @@ This repository represents group project work for course in `Fixed Income and Cr
 
 The objective of this project is to develop understanding of the concept of time value of money, fixed income securities and markets as well as interest rate derivatives.
 We study valuation and hedging using these instruments and discuss how these methods are used in practice. Furthermore, we demonstrate how to
-apply different models for construction of yield curves, and valuation and hedging using interest rate derivatives and estimating expected bond returns.
+apply different models for construction of yield curves, valuation and hedging using interest rate derivatives and estimating expected bond returns.
 
 Starting point for analysis of all the previously mention things is the dataset that contains:
 - Yield_Curve sheet: `monthly yield data`, for period from `1/31/2005 - 5/31/2021`, containing yields, for bonds from `4m tenor up to 30y`.
-- PCA sheet: `montly sport rates for ZBCs (zero-coupon bonds)`, for period from `1/31/2000 - 5/31/2021`, for bonds of `1y, 2y, 3y, 4, and 5y maturities`.
-- Fama_Bliss sheet: `montly prices of coupon-bearing bonds`, for period from `1/31/1964 - 12/31/2020`, for bonds of `1y, 2y, 3y, 4, and 5y maturities`.
+- PCA sheet: `monthly sport rates for ZBCs (zero-coupon bonds)`, for period from `1/31/2000 - 5/31/2021`, for bonds of `1y, 2y, 3y, 4, and 5y maturities`.
+- Fama_Bliss sheet: `monthly prices of coupon-bearing bonds`, for period from `1/31/1964 - 12/31/2020`, for bonds of `1y, 2y, 3y, 4, and 5y maturities`.
 
 
 ## Project phases
