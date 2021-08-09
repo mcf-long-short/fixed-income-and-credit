@@ -32,7 +32,6 @@ or you can use the following links to view them with [Jupyter nbviewer](https://
 - [Principal Component Analysis](https://colab.research.google.com/drive/1XcRkJK91YOhFtfczAEce1CL7VY3y5ebt?usp=sharing)
 - [Bond Returns Predictability](https://colab.research.google.com/drive/14nF3Dbs0LG5o2BmkfMz4_b9sr9AplyBg?usp=sharing)
 - [Fixed Income Derivatives](https://colab.research.google.com/drive/1k1h5Ea8zGgQqeE0kYHNaJSIsN_FXuR8E?usp=sharing)
-- [Stochastic Models of Interest Rates](https://colab.research.google.com/drive/1NSnmdyi9HKEfbdl0rpcuNfAVnk_vZSR8?usp=sharing)
 
 ## Running Jupyter Notebook
 We recommend viewing and running notebook files with [Google Collab](https://colab.research.google.com/notebooks/intro.ipynb?utm_source=scs-index),
